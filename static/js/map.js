@@ -55,7 +55,7 @@ fetch(BeeData).then(function(resp) {
             onEachFeature: function(feature, layer) {
 
                 clickData = clickBox(feature);
-                console.log(clickData[0])
+                // console.log(clickData[0])
                 layer.bindPopup(`State: ${feature.properties.NAME} <br> Colonies: ${clickData[0]} <br> Lost Colonies: ${clickData[1]} <br> Added Colonies: ${clickData[2]} <br> Renovated Colonies: ${clickData[3]}`)
             }
         }).addTo(myMap);
