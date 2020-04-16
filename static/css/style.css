@@ -1,147 +1,144 @@
-body {
-    /* background-image: url("/static/images/comb_bg.jpg"); */
-    /* background-image: radial-gradient("/static/images/comb_bg.jpg"); */
-    padding: 0;
-    margin: 0;
-}
-
-#map,
-body,
-html {
-    height: 250px;
-}
-
-.leaflet-popup-content {
-    text-align: center;
-}
-
-
-/* CSS from the Leaflet-Choropleth documentation */
-
-.navbar-header {
-    height: 50px;
-}
-
-.legend {
-    padding: 6px 8px;
-    font: 12px Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: #555;
-    background: #fff;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.legend ul {
-    padding: 0;
-    margin: 0;
-    clear: both;
-    list-style-type: none;
-}
-
-.legend li {
-    display: inline-block;
-    width: 30px;
-    height: 22px;
-}
-
-.legend .min {
-    float: left;
-    padding-bottom: 5px;
-}
-
-.legend .max {
-    float: right;
-}
-
-.leaflet-popup-content-wrapper {
-    /* background-color: #ffd11a; */
-    background-image: url("/static/images/bee.jpg");
-    font-size: 8px;
-    color: azure;
-    font: bold;
-}
-
-h1 {
-    text-align: center;
-}
-
-#chart1::before {
-    position: absolute;
-    top: 50px;
-    left: 300px;
-    z-index: -1;
-    display: block;
-    width: 400px;
-    height: 300px;
-    content: " ";
-    /* background-image: url("maxresdefault.jpg"); */
-    /* background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    opacity: 0.3; */
-}
-
-#chart2::before {
-    position: absolute;
-    top: 50px;
-    left: 300px;
-    z-index: -1;
-    display: block;
-    width: 400px;
-    height: 300px;
-    content: " ";
-    /* background-image: url("maxresdefault.jpg"); */
-    /* background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    opacity: 0.3; */
-}
-
-.bar {
-    color: blue;
-}
-
-.tooltip {
-    position: absolute;
-    width: 75px;
-    height: 75px;
-    padding: 2px;
-    padding-top: 2px;
-    font: 12px sans-serif;
-    color: white;
-    text-align: center;
-    background: rgb(24, 156, 150);
-    border: 10px;
-    border-radius: 90px;
-}
-
-.axis-text {
-    font-family: sans-serif;
-    font-weight: bold;
-    fill: #551aaf;
-    text-anchor: middle;
-}
-
-.active {
-    font-weight: bold;
-    font-size: medium;
-    fill: #000;
-    fill: #551aaf;
-    transition: fill 0.3s ease-out;
-    text-anchor: middle;
-}
-
-.inactive {
-    font-weight: lighter;
-    font-size: small;
-    fill: #551aaf;
-    transition: fill 0.3s ease-out;
-    text-anchor: middle;
-}
-
-.inactive:hover {
-    fill: #e75480;
-    cursor: pointer;
-}
+    body {
+        /* background-image: url("/static/images/comb_bg.jpg"); */
+        /* background-image: radial-gradient("/static/images/comb_bg.jpg"); */
+        padding: 0;
+        margin: 0;
+    }
+    
+    #map,
+    body,
+    html {
+        height: 250px;
+    }
+    
+    .leaflet-popup-content {
+        text-align: center;
+    }
+    /* CSS from the Leaflet-Choropleth documentation */
+    
+    .navbar-header {
+        height: 50px;
+    }
+    
+    .legend {
+        padding: 6px 8px;
+        font: 12px Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #555;
+        background: #fff;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .legend ul {
+        padding: 0;
+        margin: 0;
+        clear: both;
+        list-style-type: none;
+    }
+    
+    .legend li {
+        display: inline-block;
+        width: 30px;
+        height: 22px;
+    }
+    
+    .legend .min {
+        float: left;
+        padding-bottom: 5px;
+    }
+    
+    .legend .max {
+        float: right;
+    }
+    
+    .leaflet-popup-content-wrapper {
+        /* background-color: #ffd11a; */
+        background-image: url("/static/images/bee.jpg");
+        font-size: 8px;
+        color: azure;
+        font: bold;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    #chart1::before {
+        position: absolute;
+        top: 50px;
+        left: 300px;
+        z-index: -1;
+        display: block;
+        width: 400px;
+        height: 300px;
+        content: " ";
+        background-color: burlywood;
+    }
+    
+    #chart2::after {
+        position: absolute;
+        top: 50px;
+        left: 300px;
+        z-index: -1;
+        display: block;
+        width: 400px;
+        height: 300px;
+        content: " ";
+        background-color: burlywood;
+        opacity: 0.3;
+    }
+    
+    .bar {
+        color: blue;
+    }
+    
+    .tooltip {
+        position: absolute;
+        width: 75px;
+        height: 75px;
+        padding: 2px;
+        padding-top: 2px;
+        font: 12px sans-serif;
+        color: white;
+        text-align: center;
+        background: rgb(24, 156, 150);
+        border: 10px;
+        border-radius: 90px;
+    }
+    
+    .x-axis path .x-axis line {
+        shape-rendering: crispEdges;
+    }
+    
+    .x-axis text {
+        font-family: sans-serif;
+        font-weight: bolder;
+        font-size: 8px;
+        /* transform: rotate(90deg);
+        transform-origin: left top 0; */
+        text-anchor: middle;
+    }
+    
+    .active {
+        font-weight: bold;
+        font-size: medium;
+        fill: #000;
+        fill: #551aaf;
+        transition: fill 0.3s ease-out;
+        text-anchor: middle;
+    }
+    
+    .inactive {
+        font-weight: lighter;
+        font-size: small;
+        fill: #551aaf;
+        transition: fill 0.3s ease-out;
+        text-anchor: middle;
+    }
+    
+    .inactive:hover {
+        fill: #e75480;
+        cursor: pointer;
+    }
