@@ -13,14 +13,14 @@ BeeData = "/static/data/B_map.csv"
 // let myRequest = new Request(BeeData, myInit);
 
 // Define SVG area dimensions
-var svgWidth = 1000;
-var svgHeight = 1000;
+var svgWidth = 400;
+var svgHeight = 300;
 // Define the chart's margins as an object
 var chartMargin = {
     top: 30,
     right: 30,
     bottom: 30,
-    left: 30
+    left: 10
 };
 
 //set chart Height and width
@@ -37,6 +37,14 @@ var svg = d3
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
+chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - chartMargin.left)
+    .attr("x", 0 - (svgHeight / 2))
+    .attr("dy", "1em")
+    .attr("yvalue", "Colonies")
+    .classed("active", true)
+    .text("Colonies Added");
 
 d3.csv(BeeData).then(function(data, err) {
     if (err) throw err;
@@ -95,9 +103,9 @@ d3.csv(BeeData).then(function(data, err) {
         .domain([0, (unpack(data, 'States'))])
         .range([0, data.length]);
 
-    var yScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.Colonies)])
-        .range([svgHeight, 0]);
+    // var yScale = d3.scaleLinear()
+    //     .domain([0, d3.max(data, d => d.Colonies)])
+    //     .range([svgHeight, 0]);
 
     // function xScale(stateData, chosenXAxis) {
     //     // create scales
@@ -111,19 +119,19 @@ d3.csv(BeeData).then(function(data, err) {
 
     // }
 
-    // function yScale(stateData, chosenYAxis) {
-    //     // create scales
-    //     var yLinearScale = d3.scaleLinear()
-    //         .domain([0, d3.max(stateData, d => d[chosenYAxis]) * 1.2])
-    //         .range([height, 0]);
+    function yScale(data, chosenYAxis) {
+        // create scales
+        var yScaled = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d[chosenYAxis]) * .01])
+            .range([svgHeight, 0]);
 
-    //     return yLinearScale;
+        return yScaled;
 
-    // }
+    }
 
     //define and call axis
     var bottomAxis = d3.axisBottom(xScale);
-    var leftAxis = d3.axisLeft(yScale);
+    var leftAxis = d3.axisLeft(yScale(data, 'Colonies'));
 
     svg.append("g")
         .classed("axis", true)
@@ -144,5 +152,12 @@ d3.csv(BeeData).then(function(data, err) {
         .attr("width", (d => barWidth))
         .attr("height", (d => d.Colonies / 1000))
         .attr("x", ((d, i) => i * barWidth))
-        .attr("y", (yScale / 1000) - chartHeight)
+        .attr("y", (d => chartHeight - (d.Colonies / 1000)))
 })
+
+// .attr("y", function(d) {
+//     // When the size of the text is the radius,
+//     // adding a third of the radius to the height
+//     // pushes it into the middle of the circle.
+//     return yLinearScale(d[chosenYAxis]);
+// })

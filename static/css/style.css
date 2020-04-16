@@ -65,31 +65,6 @@
         text-align: center;
     }
     
-    #chart1::before {
-        position: absolute;
-        top: 50px;
-        left: 300px;
-        z-index: -1;
-        display: block;
-        width: 400px;
-        height: 300px;
-        content: " ";
-        background-color: burlywood;
-    }
-    
-    #chart2::after {
-        position: absolute;
-        top: 50px;
-        left: 300px;
-        z-index: -1;
-        display: block;
-        width: 400px;
-        height: 300px;
-        content: " ";
-        background-color: burlywood;
-        opacity: 0.3;
-    }
-    
     .bar {
         color: blue;
     }
