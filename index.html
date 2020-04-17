@@ -6,68 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bee Project</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-
+    <link rel="stylesheet" href="static/css/introjs.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+  
+   
     <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
-
-    <link rel="stylesheet" href="/static/css/leaflet.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
 
     <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="static/css/d3Style.css">
+    <!-- <link rel="stylesheet" href="static/css/d3Style.css"> -->
     <!-- d3 JavaScript -->
     <!-- <link href="/static/js/c3.css" rel="stylesheet"> -->
+
+    <!-- Load d3.js and c3.js -->
+
+    <!-- <script src="/static/js/c3.min.js"></script> -->
+
+
+    <!-- Leaflet-Choropleth JavaScript -->
+    <!-- <script type="text/javascript" src="static/js/choropleth.js"></script> -->
+
 
 </head>
 
 <body>
     <div class class="container">
-
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <!-- <img src="static/images/bee-header.png" class="img-fluid"> -->
             </div>
         </div>
-
-
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <h1>Bees!!</h1>
+                <h1>The Honeybee Project</h1>
+                <a class="btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();">Click Me!</a>
+                <div data-step="1" data-intro="Welcome to the Honeybee Project Page! Click on the buttons to learn about honeybees in the US!"></div>
             </div>
         </div>
         <div class="row">
-
-            <div class="col-xs-6  col-md-6">
+            <!-- <div class="col-md-2">
+                <div class="well">
+                    <h5>Select X Axis:</h5>
+                    <select id="selXaxis" onchange="optionChanged(this.value)"></select>
+                </div>
+            </div> -->
+            <div class="col-xs-4  col-md-4">
                 <div id="chart1">
+                  <div data-step="2" data-intro="This chart depicts total reovated colonies by state over the years 2016-2019. Use the rangeslider to zoom in on each state!"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
                 </div>
             </div>
             <div class="col-xs-6  col-md-6">
                 <div id="chart2">
+                  <div data-step="3" data-intro="This chart analyzes total colonies, added colonies, and lost colonies from the year 2019. 
+                  Click on the lines to filter the data!"></div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-1">
-                <div class="well">
-                    <h5>Select Chart</h5>
-                    <select id="selpic" onchange="optionChanged(this.value)">
-                    <option value="html1">2019 Plot</option>
-                    <option value="html2">Added/Lost Colonies</option>
-                    <option value="html3"># Colonies</option>
-
-                </select>
-                </div>
-            </div>
-            <div class="col-xs-4  col-md-4">
+            <div class="col-xs-3  col-md-3">
                 <div id="chart3">
+                  <div data-step="4" data-intro="Use the dropdown to navigate a series of charts comparing honeybee colony data."></div>
                 </div>
             </div>
-            <div class="col-xs-7  col-md-7">
+            <div class="col-xs-6  col-md-6">
                 <div id="map">
+                  <div data-step="5" data-intro="This map shows the total number of lost colonies from the year 2019. 
+                  The dark colors are used to depict higher losses while the lighter colors indicate fewer losses."></div>
                 </div>
+            </div>
+            <div class="col-xs-3  col-md-3">
+
             </div>
         </div>
     </div>
@@ -77,17 +92,13 @@
     </div>
 
 
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.1/d3.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
 
-    <script src="/static/js/leaflet.js"></script>
-
+    <!-- <script type="text/javascript" src="static/js/config.js"></script> -->
 
     <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
 
     <!-- D3 JavaScript -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -97,22 +108,25 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.1/d3.min.js"></script>
 
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
 
 
     <!-- Our JavaScript -->
-    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- <script type="text/javascript" src="static/js/config.js"></script> -->
+
+    <!-- <script type="text/javascript" src="static/js/map.js"></script>
+    <script type="text/javascript" src="static/js/timeBox.js"></script> -->
     <script type="text/javascript" src="static/js/graph.js"></script>
-
-    <script type="text/javascript" src="static/js/plotlybar.js"></script>
-    <script type="text/javascript" src="static/js/plotlypics.js"></script>
-
-    <script type="text/javascript" src="static/js/mapcopy.js"></script>
-
-
+    <script type="text/javascript" src="static/js/intro.js"></script>
+    
+ 
+    
+    
 
 </body>
 
