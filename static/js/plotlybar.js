@@ -24,7 +24,6 @@ d3.csv(BeeData).then(function(data, err) {
         return data.map(function(data) { return data[key]; });
     }
 
-    console.log(typeof(data.Colonies))
 
     var trace1 = {
         x: unpack(data, 'States'),
@@ -51,8 +50,21 @@ d3.csv(BeeData).then(function(data, err) {
 
     var layout = {
         title: "Total Colonies by State",
-        yaxis: { title: "Colonies" },
-        barmode: 'group'
+        xaxis: {
+            tickfont: {
+                size: 6,
+                color: 'rgb(107, 107, 107)'
+            }
+        },
+        yaxis: {
+            tickfont: {
+                size: 10,
+                color: 'rgb(107, 107, 107)'
+            }
+        },
+        barmode: 'group',
+        bargap: 0.15,
+        bargroupgap: 0.1
     };
 
     // Plot the chart to a div tag with id "plot"

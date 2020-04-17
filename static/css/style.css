@@ -96,24 +96,25 @@
         text-anchor: middle;
     }
     
-    .active {
-        font-weight: bold;
-        font-size: medium;
-        fill: #000;
-        fill: #551aaf;
-        transition: fill 0.3s ease-out;
-        text-anchor: middle;
+    .row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     
-    .inactive {
-        font-weight: lighter;
-        font-size: small;
-        fill: #551aaf;
-        transition: fill 0.3s ease-out;
-        text-anchor: middle;
+    .chart3 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     
-    .inactive:hover {
-        fill: #e75480;
-        cursor: pointer;
+    .well {
+        font-size: 6px;
+        padding-right: 25px;
+    }
+    
+    h5 {
+        font-size: 12px;
     }

@@ -7,28 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bee Project</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
+    <link rel="stylesheet" href="/static/css/leaflet.css" />
+
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <link rel="stylesheet" href="static/css/d3Style.css">
     <!-- d3 JavaScript -->
     <!-- <link href="/static/js/c3.css" rel="stylesheet"> -->
-
-    <!-- Load d3.js and c3.js -->
-
-    <!-- <script src="/static/js/c3.min.js"></script> -->
-
-
-    <!-- Leaflet-Choropleth JavaScript -->
-    <!-- <script type="text/javascript" src="static/js/choropleth.js"></script> -->
-
 
 </head>
 
@@ -48,15 +39,9 @@
             </div>
         </div>
         <div class="row">
-            <!-- <div class="col-md-2">
-                <div class="well">
-                    <h5>Select X Axis:</h5>
-                    <select id="selXaxis" onchange="optionChanged(this.value)"></select>
-                </div> -->
-            <!-- </div> -->
+
             <div class="col-xs-6  col-md-6">
                 <div id="chart1">
-                    <p>chart1</p>
                 </div>
             </div>
             <div class="col-xs-6  col-md-6">
@@ -65,16 +50,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-3  col-md-3">
+            <div class="col-md-1">
+                <div class="well">
+                    <h5>Select Chart</h5>
+                    <select id="selpic" onchange="optionChanged(this.value)">
+                    <option value="html1">2019 Plot</option>
+                    <option value="html2">Added/Lost Colonies</option>
+                    <option value="html3"># Colonies</option>
+
+                </select>
+                </div>
+            </div>
+            <div class="col-xs-4  col-md-4">
                 <div id="chart3">
                 </div>
             </div>
-            <div class="col-xs-6  col-md-6">
+            <div class="col-xs-7  col-md-7">
                 <div id="map">
                 </div>
-            </div>
-            <div class="col-xs-3  col-md-3">
-
             </div>
         </div>
     </div>
@@ -84,16 +77,16 @@
     </div>
 
 
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.1/d3.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
 
-    <!-- <script type="text/javascript" src="static/js/config.js"></script> -->
+    <script src="/static/js/leaflet.js"></script>
 
-    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
 
     <!-- D3 JavaScript -->
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
@@ -104,9 +97,7 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
 
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
@@ -114,11 +105,13 @@
 
     <!-- Our JavaScript -->
     <script type="text/javascript" src="static/js/config.js"></script>
+    <script type="text/javascript" src="static/js/graph.js"></script>
 
-    <!-- <script type="text/javascript" src="static/js/map.js"></script> -->
-    <!-- <script type="text/javascript" src="static/js/timeBox.js"></script> -->
-    <!-- <script type="text/javascript" src="static/js/graph.js"></script> -->
     <script type="text/javascript" src="static/js/plotlybar.js"></script>
+    <script type="text/javascript" src="static/js/plotlypics.js"></script>
+
+    <script type="text/javascript" src="static/js/mapcopy.js"></script>
+
 
 
 </body>
