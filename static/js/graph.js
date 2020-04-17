@@ -10,7 +10,7 @@ d3.json("static/data/B2019_chart.json").then(function(importedData) {
     var data = Object.keys(importedData)
         // console.log(data)
     var vvalues = []
-    colonies = getValue(importedData, "Colonies", vvalues)
+    colonies = getValue(importedData, "Renovated Colonies", vvalues)
     console.log(colonies, vvalues);
 
     // Sending in what we want
@@ -18,42 +18,35 @@ d3.json("static/data/B2019_chart.json").then(function(importedData) {
         var names = []
             // var vvalues = []
         Object.keys(data[kkeys]).forEach(function(element) {
+            console.log(element)
             names.push(element)
             vvalues.push(data[kkeys][element])
 
-        })
+        });
 
         return names
-
-        // return vvalues
-
-    }
-    // // // Call updatePlotly() when a change takes place to the DOM
-    // d3.selectAll("#selDataset").on("change", updatePlotly);
-
-    // // // This function is called when a dropdown menu item is selected
-    // function updatePlotly() {
-    // //   // Use D3 to select the dropdown menu
-    //   var dropdownMenu = d3.select("#selDataset");
-    // //   // Assign the value of the dropdown menu option to a variable
-    //   var dataset = dropdownMenu.property("value");
+    };
 
 
     // 2016
     var colony = ["Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
-    var value = [31000, 144000, 72500, 3960000, 68500, 13800, 899000, 436000, 51500, 344000, 43500, 43500, 89000, 28100, 33500, 200000, 18400, 30000, 19000, 230500, 336000, 177000, 51000, 300500, 178000, 41000, 26000, 140000, 89500, 868000, 77500, 59000, 327000, 76500, 56500, 639000, 35500, 697000, 89000, 24000, 31000, 328000, 23400, 149500, 70500]
+
+    var value = [1250, 40600, 5800, 577000, 5040, 660, 106000, 45900, 8220, 35500, 3020, 4840, 4080, 670, 2060, 18700, 860, 1650, 1060, 13300, 23870, 17840, 3380, 44180, 16410, 5010, 1610, 9460, 5160, 92530, 10320, 2710, 34300, 11500, 4980, 38800, 1880, 151800, 6490, 100, 1460, 42170, 1060, 12310, 6840]
 
     // 2017
     var colony1 = ["Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
-    var value1 = [30500, 111000, 111000, 3750000, 77500, 11400, 970000, 406000, 55500, 351000, 37500, 27800, 127500, 22700, 27000, 205000, 14800, 30000, 24700, 274000, 308000, 142500, 44500, 349500, 112500, 40200, 26000, 166000, 91500, 1094000, 71000, 32300, 350000, 63500, 54000, 422000, 36000, 845000, 83500, 23500, 27500, 290000, 28500, 168500, 66200]
+
+    var value1 = [840, 7450, 2770, 437000, 1430, 250, 62500, 9550, 2190, 12020, 730, 1450, 3180, 1190, 620, 14540, 700, 460, 620, 12910, 6100, 86800, 1960, 20000, 55000, 210, 1150, 3030, 2030, 201500, 1920, 10630, 22600, 2230, 1210, 24900, 570, 104460, 7220, 90, 920, 14830, 440, 4260, 1580]
 
     // 2018
     var colony2 = ["Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
-    var value2 = [28000, 106000, 89000, 3420000, 95000, 13600, 861000, 499000, 55000, 358000, 49000, 39000, 107000, 21100, 30000, 222000, 15900, 33500, 20800, 275000, 293000, 158000, 32000, 334500, 103000, 43000, 29000, 167000, 89000, 1045000, 70500, 51100, 330000, 75000, 64000, 314000, 35500, 851000, 101000, 26500, 37500, 291000, 30500, 160000, 84500]
+
+    var value2 = [2270, 7300, 2380, 491000, 17910, 590, 162000, 77200, 1280, 52780, 3410, 1420, 11300, 2290, 1840, 45800, 1800, 2200, 1610, 27030, 11150, 34060, 1550, 49900, 40550, 1040, 4100, 16960, 7090, 143910, 5790, 3170, 69900, 5390, 5860, 30940, 2940, 225400, 13330, 470, 2020, 44500, 6100, 18570, 7320]
 
     // 2019
     var colony3 = ["Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
-    var value3 = [29500, 101000, 95500, 3550000, 93500, 13200, 932000, 547000, 66000, 404000, 43500, 35500, 163000, 19100, 24500, 201000, 28600, 29500, 20100, 218500, 313000, 100000, 35000, 328000, 114000, 40400, 23400, 154000, 68500, 1025000, 54500, 36800, 327000, 71000, 47000, 341000, 35000, 738000, 79000, 24500, 26500, 250000, 26200, 156000, 77000]
+
+    var value3 =   [4810, 5760, 3780, 575000, 9900, 870, 166000, 137000, 17100, 53510, 4300, 3160, 5980, 2700, 1670, 6820, 1870, 2160, 1690, 36200, 34990, 13200, 1410, 44500, 6740, 660, 1450, 7770, 3360, 80010, 5230, 6770, 88900, 6070, 8690, 72020, 3140, 122570, 5950, 240, 3150, 24870, 1880, 12930, 6100]
 
     // Trace1 for the Data
     var trace1 = {
@@ -103,13 +96,16 @@ d3.json("static/data/B2019_chart.json").then(function(importedData) {
 
     // Apply the group bar mode to the layout
     var layout = {
-        title: "Total Colonies",
-        xaxis: { title: "States" },
-        yaxis: { title: "Bee Count" }
+        xaxis: {
+            rangeselector: "States",
+            rangeslider: {}
+        },
+        title: "Renovated Colonies",
+        yaxis: { range: ["Total Renovated"] }
         // }
     };
 
     // Render the plot to the div tag with id "plot"
-    Plotly.newPlot("chart1", chartData, layout);
+    Plotly.newPlot("chart1", chartData, layout)
 
-});
+})
